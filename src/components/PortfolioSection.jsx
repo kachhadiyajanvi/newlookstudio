@@ -19,7 +19,7 @@ export default function PortfolioSection({ onWatchVideo, onSelectProject }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-medium mb-3"
+          className="font-montserrat text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-semibold mb-3"
         >
           Selected Films & Imagery
         </motion.p>
@@ -29,7 +29,7 @@ export default function PortfolioSection({ onWatchVideo, onSelectProject }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal text-[#1A1715] mb-4"
+          className="font-italiana text-4xl sm:text-6xl md:text-7xl font-normal text-[#1A1715] mb-4"
         >
           A Visual Diary
         </motion.h2>
@@ -39,7 +39,7 @@ export default function PortfolioSection({ onWatchVideo, onSelectProject }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm sm:text-base text-[#5E5851] font-light leading-relaxed"
+          className="font-sans text-sm sm:text-base text-[#5E5851] font-light leading-relaxed"
         >
           A curated selection of our most cherished love stories, captured across royal courtyards, mountain ranges, and intimate coasts.
         </motion.p>
@@ -53,7 +53,7 @@ export default function PortfolioSection({ onWatchVideo, onSelectProject }) {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 text-xs uppercase tracking-[0.2em] transition-all duration-300 relative focus:outline-none ${
+              className={`px-5 py-2 font-montserrat text-xs uppercase tracking-[0.22em] transition-all duration-300 relative focus:outline-none ${
                 isActive
                   ? 'text-[#1A1715] font-semibold'
                   : 'text-[#8E877F] hover:text-[#1A1715]'
@@ -133,44 +133,44 @@ export default function PortfolioSection({ onWatchVideo, onSelectProject }) {
                       isEven ? 'lg:text-right' : 'lg:text-left'
                     } text-center lg:text-left`}
                   >
-                    <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#7D6652] mb-2 block font-medium">
-                      {project.categoryLabel} • {project.location}
+                    <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#5A5A5A] mb-3 block font-normal">
+                      {project.categoryLabel}
                     </span>
 
-                    <h3 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-normal text-[#1A1715] mb-2">
+                    <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#1A1A1A] mb-2 tracking-tight">
                       {project.title}
                     </h3>
 
-                    <p className="font-serif italic text-lg sm:text-xl text-[#7D6652] mb-4">
-                      {project.subtitle}
+                    <p className="font-serif italic text-2xl sm:text-3xl text-[#5A5A5A] mb-5 font-normal">
+                      {project.subtitle} {project.year}
                     </p>
 
-                    <p className="text-sm sm:text-base text-[#5E5851] font-light leading-relaxed mb-8">
+                    <p className="font-sans text-base sm:text-lg text-[#5A5A5A] font-light leading-relaxed mb-8">
                       {project.description}
                     </p>
 
-                    {/* Action buttons */}
+                    {/* Action buttons (Sharp Minimal Box like screenshot) */}
                     <div
                       className={`flex items-center gap-4 ${
                         isEven ? 'lg:justify-end' : 'lg:justify-start'
                       } justify-center`}
                     >
                       <button
+                        data-cursor="view"
+                        onClick={() => onSelectProject(project)}
+                        className="px-8 py-3.5 border border-[#1A1A1A] bg-transparent text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F7F4EE] font-sans text-xs uppercase tracking-[0.18em] font-normal transition-colors rounded-none"
+                      >
+                        View Details
+                      </button>
+
+                      <button
                         onClick={() => onWatchVideo(project)}
-                        className="px-6 py-3 bg-[#1A1715] text-[#F7F4EE] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#7D6652] transition-colors flex items-center gap-2 shadow-sm"
+                        className="px-8 py-3.5 bg-[#1A1A1A] text-[#F7F4EE] hover:bg-transparent hover:text-[#1A1A1A] border border-[#1A1A1A] font-sans text-xs uppercase tracking-[0.18em] font-normal transition-colors flex items-center gap-2 rounded-none"
                       >
                         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
                         </svg>
                         <span>Watch Film</span>
-                      </button>
-
-                      <button
-                        data-cursor="view"
-                        onClick={() => onSelectProject(project)}
-                        className="px-6 py-3 border border-[#1A1715]/30 text-[#1A1715] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#1A1715] hover:text-[#F7F4EE] transition-colors"
-                      >
-                        View Story
                       </button>
                     </div>
                   </div>

@@ -61,18 +61,18 @@ export default function AboutSection({ onInquireClick }) {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#1A1715]">
               <img
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85"
-                alt="NEW LOOK Lead Filmmaker"
+                alt="Newlook Lead Filmmakers"
                 className="w-full h-full object-cover filter contrast-[1.05]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
 
-              {/* Bottom Badge */}
+              {/* Bottom Badge with User's Signature Logo */}
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <StudioLogo className="h-10 text-white/90 mb-1" />
+                <StudioLogo className="h-11 text-white mb-2" />
                 <p className="font-serif text-xl sm:text-2xl font-light">
                   {STUDIO_INFO.founder}
                 </p>
-                <span className="text-[10px] uppercase tracking-[0.3em] font-mono text-[#C8A97E]">
+                <span className="font-montserrat text-[10px] uppercase tracking-[0.3em] text-[#E5D3B8] font-medium block mt-0.5">
                   Lead Directors & Cinematographers
                 </span>
               </div>
@@ -95,11 +95,16 @@ export default function AboutSection({ onInquireClick }) {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col justify-center"
         >
-          <span className="text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-medium mb-3">
+          {/* Prominent NewLook Logo inside The Philosophy Section */}
+          <div className="mb-4">
+            <StudioLogo className="h-14 sm:h-16 text-[#7D6652]" />
+          </div>
+
+          <span className="font-montserrat text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-semibold mb-3">
             The Philosophy
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal text-[#1A1715] mb-6">
+          <h2 className="font-italiana text-4xl sm:text-6xl md:text-7xl font-normal text-[#1A1715] mb-6">
             Behind the Lens
           </h2>
 
@@ -118,7 +123,7 @@ export default function AboutSection({ onInquireClick }) {
             {STUDIO_INFO.stats.map((stat, i) => (
               <div key={i} className="flex flex-col">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                <span className="text-[11px] uppercase tracking-wider text-[#8E877F] mt-1 font-medium font-mono">
+                <span className="font-montserrat text-[11px] uppercase tracking-wider text-[#8E877F] mt-1 font-semibold">
                   {stat.label}
                 </span>
               </div>
@@ -129,7 +134,7 @@ export default function AboutSection({ onInquireClick }) {
           <div>
             <button
               onClick={onInquireClick}
-              className="px-8 py-3.5 bg-[#1A1715] text-[#F7F4EE] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#7D6652] transition-colors shadow-sm"
+              className="px-8 py-3.5 bg-[#1A1715] text-[#F7F4EE] font-montserrat text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#7D6652] transition-colors shadow-sm"
             >
               Get In Touch With The Artist
             </button>

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import StudioLogo from './StudioLogo';
 
 export default function Hero({ onExploreClick, onInquireClick }) {
   const canvasRef = useRef(null);
@@ -111,19 +110,17 @@ export default function Hero({ onExploreClick, onInquireClick }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20"
     >
       {/* ── Background Aurora & Parallax Container ── */}
       <div
         ref={bgRef}
         className="absolute inset-[-40px] pointer-events-none transition-transform will-change-transform"
       >
-        {/* Warm Taupe & Golden Organic Aurora Blobs */}
         <div className="absolute top-[-10vw] left-[-5vw] w-[55vw] h-[55vw] rounded-full bg-[#7D6652]/15 blur-[120px] animate-aurora-slow" />
         <div className="absolute bottom-[-10vw] right-[-5vw] w-[50vw] h-[50vw] rounded-full bg-[#C8A97E]/20 blur-[130px] animate-aurora-medium" />
         <div className="absolute top-[35%] left-[25%] w-[42vw] h-[42vw] rounded-full bg-[#929E45]/12 blur-[110px] animate-aurora-slow" />
 
-        {/* Floating Light Leaks */}
         <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-[#E2B77A]/20 to-transparent blur-[90px] animate-light-leak" />
         <div className="absolute -bottom-40 -right-40 w-[650px] h-[650px] rounded-full bg-gradient-to-tl from-[#7D6652]/15 to-transparent blur-[100px] animate-light-leak" />
       </div>
@@ -136,76 +133,66 @@ export default function Hero({ onExploreClick, onInquireClick }) {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F7F4EE] z-[3] opacity-80" />
 
       {/* Foreground Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
-        {/* Studio Badge with Signature Calligraphy */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-3"
-        >
-          <StudioLogo className="h-16 sm:h-20 text-[#1A1715]" />
-        </motion.div>
-
-        {/* Studio Category Tagline */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+        {/* Curated Category Tagline Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#1A1715]/10 bg-white/70 backdrop-blur-md mb-6"
+          transition={{ duration: 0.8 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#1A1715]/15 bg-white/60 mb-6"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#7D6652] animate-pulse" />
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-medium text-[#5E5851]">
-            Luxury Wedding Films & Editorial Photography
+          <span className="w-1.5 h-1.5 rounded-full bg-[#1A1715]" />
+          <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#5A5A5A] font-normal">
+            WEDDING & EDITORIAL FILMS
           </span>
         </motion.div>
 
-        {/* Main Headline */}
+        {/* ── Headline in Iconic Playfair Display ── */}
         <div className="overflow-hidden mb-3">
           <motion.h1
-            initial={{ y: 70, opacity: 0 }}
+            initial={{ y: 90, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[0.02em] text-[#1A1715]"
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-serif text-6xl sm:text-8xl md:text-9xl text-[#1A1715] font-normal tracking-[-0.02em] leading-none"
           >
-            Make Timeless Love Stories
+            New Look & Studio
           </motion.h1>
         </div>
 
-        {/* Sub-headline with italic script accent */}
-        <div className="overflow-hidden mb-6">
-          <motion.p
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic text-lg sm:text-2xl text-[#7D6652] font-light"
-          >
-            A visual symphony of raw emotion, cinematic light, and enduring art
-          </motion.p>
-        </div>
+        {/* Sub-headline in Playfair Display Italic */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25 }}
+          className="mb-8"
+        >
+          <p className="font-serif italic text-2xl sm:text-4xl md:text-5xl text-[#5A5A5A] font-normal leading-snug">
+            Make a timeless love story
+          </p>
+        </motion.div>
 
         {/* Descriptive bio */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="text-sm sm:text-base text-[#5E5851] font-light max-w-2xl leading-relaxed mb-10"
+          transition={{ duration: 1, delay: 0.45 }}
+          className="font-sans text-base sm:text-lg text-[#5A5A5A] font-light max-w-2xl leading-relaxed mb-12"
         >
-          Crafting bespoke films and editorial imagery for couples worldwide who cherish genuine poetry, architectural grandeur, and unscripted intimacy.
+          A stunning collection capturing every beautiful moment. Editorial honesty blended seamlessly with cinematic elegance and bespoke artistry.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* Minimalist Editorial Buttons (Sharp Corners like Screenshot) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.7 }}
+          transition={{ duration: 0.9, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto"
         >
           <button
             onClick={onExploreClick}
-            className="w-full sm:w-auto px-8 sm:px-10 py-4 text-xs uppercase tracking-[0.25em] font-medium bg-[#1A1715] text-[#F7F4EE] hover:bg-[#7D6652] transition-all duration-300 shadow-md flex items-center justify-center gap-3 group"
+            className="w-full sm:w-auto px-8 sm:px-10 py-4 font-sans text-xs uppercase tracking-[0.2em] font-normal bg-[#1A1715] text-[#F7F4EE] hover:bg-transparent hover:text-[#1A1715] border border-[#1A1715] transition-all duration-300 flex items-center justify-center gap-3 rounded-none group"
           >
-            <span>Explore Portfolio</span>
+            <span>View Work</span>
             <svg
               className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -218,7 +205,7 @@ export default function Hero({ onExploreClick, onInquireClick }) {
 
           <button
             onClick={onInquireClick}
-            className="w-full sm:w-auto px-8 sm:px-10 py-4 text-xs uppercase tracking-[0.25em] font-medium border border-[#1A1715] text-[#1A1715] hover:bg-[#1A1715] hover:text-[#F7F4EE] transition-all duration-300"
+            className="w-full sm:w-auto px-8 sm:px-10 py-4 font-sans text-xs uppercase tracking-[0.2em] font-normal border border-[#1A1715] bg-transparent text-[#1A1715] hover:bg-[#1A1715] hover:text-[#F7F4EE] transition-all duration-300 rounded-none"
           >
             Inquire For Date
           </button>

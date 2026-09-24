@@ -12,7 +12,7 @@ export default function ServicesSection({ onInquireService }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-medium mb-3"
+          className="font-montserrat text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-semibold mb-3"
         >
           What We Do
         </motion.p>
@@ -22,7 +22,7 @@ export default function ServicesSection({ onInquireService }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal text-[#1A1715] mb-4"
+          className="font-italiana text-4xl sm:text-6xl md:text-7xl font-normal text-[#1A1715] mb-4"
         >
           Editorial Offerings
         </motion.h2>
@@ -32,7 +32,7 @@ export default function ServicesSection({ onInquireService }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm sm:text-base text-[#5E5851] font-light leading-relaxed"
+          className="font-sans text-sm sm:text-base text-[#5E5851] font-light leading-relaxed"
         >
           Each commission is treated as a standalone piece of art, tailored specifically to the energy, cadence, and legacy of your celebration.
         </motion.p>
@@ -55,18 +55,18 @@ export default function ServicesSection({ onInquireService }) {
                 <span className="font-mono text-xs text-[#7D6652] tracking-widest font-semibold">
                   {service.number}
                 </span>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#8E877F]">
+                <span className="font-montserrat text-[11px] uppercase tracking-wider text-[#8E877F] font-medium">
                   {service.duration}
                 </span>
               </div>
 
-              {/* Title in Editorial Serif */}
-              <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-[#1A1715] mb-3 group-hover:text-[#7D6652] transition-colors">
+              {/* Title in High-Contrast Bodoni Moda */}
+              <h3 className="font-bodoni text-2xl sm:text-3xl font-normal text-[#1A1715] mb-3 group-hover:text-[#7D6652] transition-colors tracking-tight">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-[#5E5851] font-light leading-relaxed mb-6">
+              <p className="font-sans text-sm text-[#5E5851] font-light leading-relaxed mb-6">
                 {service.description}
               </p>
 
@@ -75,7 +75,7 @@ export default function ServicesSection({ onInquireService }) {
                 {service.highlights.map((highlight, hIndex) => (
                   <li
                     key={hIndex}
-                    className="flex items-center gap-2.5 text-xs text-[#5E5851]"
+                    className="flex items-center gap-2.5 text-xs text-[#5E5851] font-sans"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#7D6652]" />
                     <span>{highlight}</span>
@@ -87,7 +87,7 @@ export default function ServicesSection({ onInquireService }) {
             {/* Inquire link */}
             <button
               onClick={() => onInquireService(service)}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#1A1715] group-hover:text-[#7D6652] transition-colors focus:outline-none"
+              className="inline-flex items-center gap-2 font-montserrat text-xs uppercase tracking-[0.2em] font-semibold text-[#1A1715] group-hover:text-[#7D6652] transition-colors focus:outline-none"
             >
               <span>Connect On WhatsApp</span>
               <svg

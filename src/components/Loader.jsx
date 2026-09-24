@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import StudioLogo from './StudioLogo';
 
 export default function Loader({ onComplete }) {
   const [percent, setPercent] = useState(0);
@@ -40,24 +39,29 @@ export default function Loader({ onComplete }) {
           {/* Ambient glow */}
           <div className="absolute w-[450px] h-[450px] bg-[#7D6652]/10 rounded-full blur-[140px] pointer-events-none" />
 
-          {/* Studio Signature Logo Showcase */}
+          {/* Elegant Haute-Couture Text Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-            className="relative z-10 flex flex-col items-center mb-8"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.215, 0.61, 0.355, 1] }}
+            className="relative z-10 flex flex-col items-center text-center mb-8"
           >
-            <StudioLogo className="h-20 sm:h-28 text-[#1A1715]" />
+            <span className="font-italiana text-5xl sm:text-7xl md:text-8xl tracking-[0.24em] font-normal text-[#1A1715] leading-none mb-3">
+              NEW LOOK
+            </span>
+            <span className="font-montserrat text-xs sm:text-sm uppercase tracking-[0.55em] text-[#7D6652] font-semibold">
+              PHOTO STUDIO
+            </span>
           </motion.div>
 
           {/* Subtitle tag */}
           <motion.p
             initial={{ opacity: 0, letterSpacing: '0.1em' }}
-            animate={{ opacity: 0.7, letterSpacing: '0.35em' }}
+            animate={{ opacity: 0.75, letterSpacing: '0.35em' }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-[10px] sm:text-xs uppercase font-mono text-[#5E5851] mb-10"
+            className="font-editorial italic text-sm sm:text-base text-[#5E5851] mb-12 font-light"
           >
-            CINEMATIC & EDITORIAL PHOTO STUDIO
+            Capturing Timeless Stories & Cinematic Elegance
           </motion.p>
 
           {/* Progress Bar & Counter */}
@@ -70,7 +74,7 @@ export default function Loader({ onComplete }) {
               />
             </div>
             <div className="flex justify-between w-full text-[11px] font-mono text-[#8E877F]">
-              <span>LOADING PORTFOLIO</span>
+              <span>PREPARING GALLERY</span>
               <span className="text-[#1A1715] font-semibold">{percent}%</span>
             </div>
           </div>

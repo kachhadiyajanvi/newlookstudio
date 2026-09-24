@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SmoothScroll from './components/SmoothScroll';
 import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
@@ -45,7 +46,11 @@ export default function App() {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, { offset: -50, duration: 1.4 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -73,6 +78,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F7F4EE] text-[#1A1715] font-sans selection:bg-[#7D6652]/20 selection:text-[#7D6652] relative">
+      {/* ── Loose Inertia Smooth Scrolling Engine ── */}
+      <SmoothScroll />
+
       {/* ── Custom Attractive Fluid Spring Cursor ── */}
       <CustomCursor />
 

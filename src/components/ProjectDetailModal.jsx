@@ -27,7 +27,10 @@ export default function ProjectDetailModal({ project, isOpen, onClose, onWatchVi
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-y-auto">
+      <div 
+        data-lenis-prevent="true"
+        className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-y-auto modal"
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -39,11 +42,16 @@ export default function ProjectDetailModal({ project, isOpen, onClose, onWatchVi
 
         {/* Modal Card */}
         <motion.div
+          data-lenis-prevent="true"
+          role="dialog"
+          aria-modal="true"
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
           initial={{ scale: 0.95, opacity: 0, y: 30 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 30 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F7F4EE] text-[#1A1715] rounded-2xl shadow-2xl border border-[#1A1715]/10"
+          className="relative z-10 w-full max-w-4xl max-h-[88vh] overflow-y-auto overscroll-contain bg-[#F7F4EE] text-[#1A1715] rounded-2xl shadow-2xl border border-[#1A1715]/10 my-auto"
         >
           {/* Close button */}
           <button

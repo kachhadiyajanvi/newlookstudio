@@ -4,193 +4,154 @@ import { STUDIO_INFO } from '../data/studioData';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#1A1715]/10">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Clean Typographic Branding replacing Logo */}
-        <div className="flex flex-col items-center mb-6">
-          <span className="font-italiana text-3xl sm:text-4xl tracking-[0.24em] font-normal text-[#1A1715] leading-none">
-            NEW LOOK
-          </span>
-          <span className="font-montserrat text-[9px] uppercase tracking-[0.5em] text-[#7D6652] font-semibold mt-1">
-            PHOTO STUDIO
-          </span>
+    <section id="contact" className="relative py-28 md:py-36 px-6 md:px-12 max-w-5xl mx-auto border-t border-[#1A1715]/10 text-center">
+      {/* ── Section Header matching Reference Website ── */}
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="font-sans text-xs uppercase tracking-[0.25em] text-[#5A5A5A] mb-3 font-normal"
+      >
+        Inquire
+      </motion.p>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="font-serif text-5xl sm:text-6xl md:text-7xl font-normal text-[#1A1A1A] mb-4 tracking-tight"
+      >
+        Let's tell your story
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="font-sans text-base sm:text-lg text-[#5A5A5A] font-light max-w-2xl mx-auto mb-12 leading-relaxed"
+      >
+        We take on a limited number of commissions each year to ensure the highest level of artistry. Reach out directly to secure your date.
+      </motion.p>
+
+      {/* ── Hero Action CTAs (Clean, Sharp Rectangular Buttons) ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10"
+      >
+        <a
+          href={STUDIO_INFO.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto px-10 py-4 bg-[#1A1A1A] text-white hover:bg-transparent hover:text-[#1A1A1A] border border-[#1A1A1A] font-sans text-xs uppercase tracking-[0.2em] font-normal transition-all duration-300 rounded-none inline-flex items-center justify-center gap-3"
+        >
+          <span>WhatsApp</span>
+        </a>
+
+        <a
+          href={`tel:${STUDIO_INFO.phoneClean}`}
+          className="w-full sm:w-auto px-10 py-4 bg-transparent text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white border border-[#1A1A1A] font-sans text-xs uppercase tracking-[0.2em] font-normal transition-all duration-300 rounded-none inline-flex items-center justify-center gap-3"
+        >
+          <span>Call</span>
+        </a>
+
+        <a
+          href={`mailto:${STUDIO_INFO.email}`}
+          className="w-full sm:w-auto px-10 py-4 bg-transparent text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white border border-[#1A1A1A] font-sans text-xs uppercase tracking-[0.2em] font-normal transition-all duration-300 rounded-none inline-flex items-center justify-center gap-3"
+        >
+          <span>Send an Email</span>
+        </a>
+      </motion.div>
+
+      {/* ── Direct Phone & WhatsApp Note with Underlines ── */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="font-sans text-sm text-[#5A5A5A] mb-12"
+      >
+        Call:{' '}
+        <a
+          href={`tel:${STUDIO_INFO.phoneClean}`}
+          className="text-[#1A1A1A] font-medium underline underline-offset-4 hover:opacity-75 transition-opacity"
+        >
+          {STUDIO_INFO.phone}
+        </a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        WhatsApp:{' '}
+        <a
+          href={STUDIO_INFO.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#1A1A1A] font-medium underline underline-offset-4 hover:opacity-75 transition-opacity"
+        >
+          {STUDIO_INFO.whatsapp}
+        </a>
+      </motion.p>
+
+      {/* ── Luxury Circular Social Links ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="flex items-center justify-center gap-10 sm:gap-14 pt-8 border-t border-[#1A1715]/10"
+      >
+        {/* Instagram */}
+        <div className="flex flex-col items-center gap-2">
+          <a
+            href={STUDIO_INFO.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="w-12 h-12 rounded-full border border-[#1A1A1A]/20 hover:border-[#1A1A1A] hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white flex items-center justify-center transition-all duration-300 group"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <span className="font-sans text-xs tracking-wider text-[#5A5A5A]">Instagram</span>
         </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-montserrat text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-semibold mb-3"
-        >
-          Direct Concierge & Booking
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-italiana text-4xl sm:text-6xl md:text-7xl font-normal text-[#1A1715] mb-4"
-        >
-          Let's Tell Your Story
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-sans text-sm sm:text-base text-[#5E5851] font-light leading-relaxed max-w-2xl mx-auto mb-14"
-        >
-          We take on a limited number of commissions each year to ensure the highest level of craftsmanship, bespoke intimacy, and dedicated focus. Reach out directly to discuss your celebration date.
-        </motion.p>
-
-        {/* ── Direct Contact Channel Cards ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16 text-left">
-          {/* Card 1: WhatsApp */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-8 rounded-2xl bg-white border border-[#1A1715]/10 shadow-sm hover:shadow-xl hover:border-[#7D6652] transition-all duration-300 flex flex-col justify-between group"
+        {/* YouTube */}
+        <div className="flex flex-col items-center gap-2">
+          <a
+            href={STUDIO_INFO.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            className="w-12 h-12 rounded-full border border-[#1A1A1A]/20 hover:border-[#1A1A1A] hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white flex items-center justify-center transition-all duration-300 group"
           >
-            <div>
-              <div className="w-12 h-12 rounded-full bg-[#7D6652]/10 text-[#7D6652] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.202.043.072.043.419-.101.824z" />
-                </svg>
-              </div>
-              <span className="font-montserrat text-[11px] uppercase tracking-[0.25em] text-[#7D6652] font-semibold block mb-1">
-                Fastest Response
-              </span>
-              <h3 className="font-editorial text-2xl font-normal text-[#1A1715] mb-2">
-                WhatsApp Chat
-              </h3>
-              <p className="text-sm text-[#5E5851] font-light leading-relaxed mb-6">
-                Connect directly with our creative director to discuss dates, location, and packages.
-              </p>
-            </div>
-            <a
-              href={STUDIO_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-montserrat text-xs uppercase tracking-[0.2em] font-semibold text-[#1A1715] group-hover:text-[#7D6652] transition-colors"
-            >
-              <span>Message On WhatsApp</span>
-              <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </motion.div>
-
-          {/* Card 2: Phone Call */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="p-8 rounded-2xl bg-white border border-[#1A1715]/10 shadow-sm hover:shadow-xl hover:border-[#7D6652] transition-all duration-300 flex flex-col justify-between group"
-          >
-            <div>
-              <div className="w-12 h-12 rounded-full bg-[#7D6652]/10 text-[#7D6652] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg className="w-6 h-6 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
-              <span className="font-montserrat text-[11px] uppercase tracking-[0.25em] text-[#7D6652] font-semibold block mb-1">
-                Voice Inquiry
-              </span>
-              <h3 className="font-editorial text-2xl font-normal text-[#1A1715] mb-2">
-                Direct Studio Call
-              </h3>
-              <p className="text-sm text-[#5E5851] font-light leading-relaxed mb-6">
-                Speak directly regarding wedding timelines, custom commissions, and multi-day coverage.
-              </p>
-            </div>
-            <a
-              href={`tel:${STUDIO_INFO.phoneClean}`}
-              className="inline-flex items-center gap-2 font-montserrat text-xs uppercase tracking-[0.2em] font-semibold text-[#1A1715] group-hover:text-[#7D6652] transition-colors"
-            >
-              <span>{STUDIO_INFO.phone}</span>
-              <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </motion.div>
-
-          {/* Card 3: Email Concierge */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 rounded-2xl bg-white border border-[#1A1715]/10 shadow-sm hover:shadow-xl hover:border-[#7D6652] transition-all duration-300 flex flex-col justify-between group"
-          >
-            <div>
-              <div className="w-12 h-12 rounded-full bg-[#7D6652]/10 text-[#7D6652] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg className="w-6 h-6 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <span className="font-montserrat text-[11px] uppercase tracking-[0.25em] text-[#7D6652] font-semibold block mb-1">
-                Editorial Briefs
-              </span>
-              <h3 className="font-editorial text-2xl font-normal text-[#1A1715] mb-2">
-                Email Studio
-              </h3>
-              <p className="text-sm text-[#5E5851] font-light leading-relaxed mb-6">
-                Send moodboards, event schedules, or editorial commission briefs directly to our desk.
-              </p>
-            </div>
-            <a
-              href={`mailto:${STUDIO_INFO.email}`}
-              className="inline-flex items-center gap-2 font-montserrat text-xs uppercase tracking-[0.2em] font-semibold text-[#1A1715] group-hover:text-[#7D6652] transition-colors"
-            >
-              <span>{STUDIO_INFO.email}</span>
-              <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </motion.div>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z" />
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+            </svg>
+          </a>
+          <span className="font-sans text-xs tracking-wider text-[#5A5A5A]">YouTube</span>
         </div>
 
-        {/* ── Bottom Details & Social Connections ── */}
-        <div className="pt-10 border-t border-[#1A1715]/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#5E5851]">
-          <div className="flex items-center gap-2 font-montserrat tracking-wide">
-            <span className="w-2 h-2 rounded-full bg-[#7D6652]" />
-            <span className="font-medium text-[#1A1715]">{STUDIO_INFO.location}</span>
-          </div>
-
-          <div className="flex items-center gap-8 font-montserrat">
-            <a
-              href={STUDIO_INFO.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#7D6652] uppercase tracking-[0.2em] font-semibold transition-colors"
-            >
-              Instagram
-            </a>
-            <a
-              href={STUDIO_INFO.youtubeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#7D6652] uppercase tracking-[0.2em] font-semibold transition-colors"
-            >
-              YouTube
-            </a>
-            <a
-              href={STUDIO_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#7D6652] uppercase tracking-[0.2em] font-semibold transition-colors"
-            >
-              WhatsApp
-            </a>
-          </div>
+        {/* Email */}
+        <div className="flex flex-col items-center gap-2">
+          <a
+            href={`mailto:${STUDIO_INFO.email}`}
+            aria-label="Email"
+            className="w-12 h-12 rounded-full border border-[#1A1A1A]/20 hover:border-[#1A1A1A] hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white flex items-center justify-center transition-all duration-300 group"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+          <span className="font-sans text-xs tracking-wider text-[#5A5A5A]">Email</span>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

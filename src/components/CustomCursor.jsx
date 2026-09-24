@@ -4,20 +4,18 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 export default function CustomCursor() {
   const [cursorType, setCursorType] = useState('default'); // 'default', 'pointer', 'play', 'view'
   const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Raw mouse coordinates
+  // Mouse coordinates
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Smooth spring physics for outer trailing ring
-  const springConfig = { damping: 24, stiffness: 220, mass: 0.5 };
+  // Tightly coupled smooth spring physics so the ring never detaches awkwardly
+  const springConfig = { damping: 28, stiffness: 350, mass: 0.2 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Only activate custom cursor on devices that support hover (non-touch)
     const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (!isFinePointer) return;
 
@@ -29,12 +27,9 @@ export default function CustomCursor() {
       if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseDown = () => setIsClicked(true);
-    const handleMouseUp = () => setIsClicked(false);
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    // Scan interactive target on mouseover
     const handleMouseOver = (e) => {
       const target = e.target;
       const playTarget = target.closest('[data-cursor="play"]');
@@ -57,8 +52,6 @@ export default function CustomCursor() {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mouseover', handleMouseOver);
     document.documentElement.addEventListener('mouseleave', handleMouseLeave);
     document.documentElement.addEventListener('mouseenter', handleMouseEnter);
@@ -66,8 +59,6 @@ export default function CustomCursor() {
     return () => {
       document.body.classList.remove('custom-cursor-active');
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mouseover', handleMouseOver);
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
       document.documentElement.removeEventListener('mouseenter', handleMouseEnter);
@@ -78,23 +69,9 @@ export default function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden">
-      {/* ── 1. Sharp Center Dot (Instant follow) ── */}
+      {/* ── Unified Luxury Cursor (No detached double-circles) ── */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#7D6652] pointer-events-none -translate-x-1/2 -translate-y-1/2"
-        style={{
-          x: mouseX,
-          y: mouseY,
-        }}
-        animate={{
-          scale: isClicked ? 0.6 : cursorType === 'play' || cursorType === 'view' ? 0 : 1,
-          opacity: isVisible ? 1 : 0,
-        }}
-        transition={{ duration: 0.15 }}
-      />
-
-      {/* ── 2. Fluid Trailing Ring (Spring Physics) ── */}
-      <motion.div
-        className="fixed top-0 left-0 rounded-full flex items-center justify-center -translate-x-1/2 -translate-y-1/2 border border-[#7D6652]/40 bg-[#7D6652]/5 backdrop-blur-[1px] pointer-events-none"
+        className="fixed top-0 left-0 rounded-full flex items-center justify-center -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
           x: smoothX,
           y: smoothY,
@@ -102,44 +79,44 @@ export default function CustomCursor() {
         animate={{
           width:
             cursorType === 'play' || cursorType === 'view'
-              ? 80
+              ? 76
               : isHovered
-              ? 54
-              : 34,
+              ? 48
+              : 12,
           height:
             cursorType === 'play' || cursorType === 'view'
-              ? 80
+              ? 76
               : isHovered
-              ? 54
-              : 34,
-          borderColor:
-            cursorType === 'play' || cursorType === 'view'
-              ? '#C8A97E'
-              : isHovered
-              ? '#7D6652'
-              : 'rgba(125, 102, 82, 0.35)',
+              ? 48
+              : 12,
           backgroundColor:
             cursorType === 'play' || cursorType === 'view'
-              ? 'rgba(200, 169, 126, 0.92)'
+              ? '#1A1A1A'
               : isHovered
-              ? 'rgba(125, 102, 82, 0.12)'
-              : 'rgba(125, 102, 82, 0.04)',
-          scale: isClicked ? 0.85 : 1,
+              ? 'rgba(26, 26, 26, 0.08)'
+              : '#1A1A1A',
+          borderColor:
+            cursorType === 'play' || cursorType === 'view'
+              ? '#1A1A1A'
+              : isHovered
+              ? '#1A1A1A'
+              : 'transparent',
+          borderWidth: isHovered && cursorType === 'pointer' ? '1px' : '0px',
         }}
         transition={{
           type: 'spring',
-          stiffness: 300,
-          damping: 24,
+          stiffness: 400,
+          damping: 28,
         }}
       >
-        {/* Dynamic Label when hovering media cards */}
+        {/* Dynamic Badge Text on Project Cards */}
         {cursorType === 'play' && (
-          <span className="text-[10px] font-mono tracking-widest uppercase font-semibold text-[#1A1715]">
+          <span className="text-[10px] font-sans tracking-widest uppercase font-medium text-white">
             PLAY
           </span>
         )}
         {cursorType === 'view' && (
-          <span className="text-[10px] font-mono tracking-widest uppercase font-semibold text-[#1A1715]">
+          <span className="text-[10px] font-sans tracking-widest uppercase font-medium text-white">
             VIEW
           </span>
         )}

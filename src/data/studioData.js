@@ -161,7 +161,7 @@ export const PROJECTS = [
     categoryLabel: 'Cinematic Teaser',
     location: 'Udaipur, India',
     duration: '1:12 min',
-    thumbnail: 'https://images.unsplash.com/photo-1519225429881-8669527e0258?auto=format&fit=crop&w=1400&q=85',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=85',
     youtubeId: 'Iop6XqAVKak',
     videoUrl: 'https://www.youtube.com/embed/Iop6XqAVKak',
     description: 'A moody, candlelit prelude capturing the anticipation and romance of the wedding eve. Edited with heart-racing cinematic tempo.',

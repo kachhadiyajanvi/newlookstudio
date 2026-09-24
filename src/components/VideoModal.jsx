@@ -29,7 +29,10 @@ export default function VideoModal({ videoUrl, title, isOpen, onClose }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10">
+      <div 
+        data-lenis-prevent="true"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10 modal"
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
